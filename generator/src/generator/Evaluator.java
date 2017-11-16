@@ -20,7 +20,7 @@ public class Evaluator {
 				nrInCircle++;
 			}
 		}
-		float z = (4*nrInCircle)/10000;
+		float z =(float) (4*nrInCircle)/10000;
 		return (Math.abs(pi-z));
 	}
 	
