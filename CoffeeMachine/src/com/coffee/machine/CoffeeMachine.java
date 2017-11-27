@@ -10,20 +10,6 @@ public class CoffeeMachine extends StateMachine {
 
 	}
 
-	@Override
-	public void transition(String action) {
-		if (table.get(currentState).get(action) != null) {
-			currentState = table.get(currentState).get(action);
-			if (action.equals("C10") || action.equals("C15")) {
-				System.out.println("Coffee " + action + " Finished");
-			}
-			System.out.println("Credit: " + currentState);
-		} else {
-			System.out.println("Credit not enough!");
-		}
-
-	}
-
 	public HashMap<String, HashMap<String, String>> fillTable() {
 		HashMap<String, HashMap<String, String>> mainTable = new HashMap<String, HashMap<String, String>>();
 
@@ -48,5 +34,13 @@ public class CoffeeMachine extends StateMachine {
 		mainTable.put("15", table4);
 
 		return mainTable;
+	}
+
+	@Override
+	public void showMessage(String action) {
+		if (action.equals("C10") || action.equals("C15")) {
+			System.out.println("Coffee " + action + " Finished");
+		}
+		System.out.println("Credit: " + currentState);
 	}
 }
